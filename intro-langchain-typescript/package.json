@@ -8,6 +8,7 @@
     "dev": "ts-node src/index.ts",
     "watch": "nodemon --exec ts-node src/index.ts",
     "hello": "ts-node src/examples/1-fundamentos/1-hello_world.ts",
+    "init-chat": "ts-node src/examples/1-fundamentos/2-init-chat-model.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

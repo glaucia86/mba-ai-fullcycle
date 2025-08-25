@@ -10,6 +10,7 @@
     "hello": "ts-node src/examples/1-fundamentos/1-hello_world.ts",
     "init-chat": "ts-node src/examples/1-fundamentos/2-init-chat-model.ts",
     "prompt": "ts-node src/examples/1-fundamentos/3-prompt-template.ts",
+    "chat-prompt": "ts-node src/examples/1-fundamentos/4-chat-prompt-template.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -30,7 +30,9 @@ intro-langchain-typescript/
 │   │   │   ├── 3-prompt-template.ts
 │   │   │   └── 4-chat-prompt-template.ts
 │   │   └── 2-chains-e-processamento/
-│   │       └── 1-iniciando-com-chains.ts
+│   │       ├── 1-iniciando-com-chains.ts
+│   │       ├── 2-chains-com-decorators.ts
+│   │       └── 3-runnable-lambda.ts
 │   ├── utils/
 │   │   └── helpers.ts
 │   └── index.ts
@@ -45,13 +47,15 @@ intro-langchain-typescript/
 
 ## 📚 Exemplos Disponíveis
 
-| Categoria       | Exemplo              | Comando NPM           | Comando Direto                                                                |
-| --------------- | -------------------- | --------------------- | ----------------------------------------------------------------------------- |
-| **Fundamentos** | Hello World          | `npm run hello`       | `npx ts-node src/examples/1-fundamentos/1-hello_world.ts`                     |
-| **Fundamentos** | Init Chat Model      | `npm run init-chat`   | `npx ts-node src/examples/1-fundamentos/2-init-chat-model.ts`                 |
-| **Fundamentos** | Prompt Template      | `npm run prompt`      | `npx ts-node src/examples/1-fundamentos/3-prompt-template.ts`                 |
-| **Fundamentos** | Chat Prompt Template | `npm run chat-prompt` | `npx ts-node src/examples/1-fundamentos/4-chat-prompt-template.ts`            |
-| **Chains**      | Iniciando com Chains | `npm run chains`      | `npx ts-node src/examples/2-chains-e-processamento/1-iniciando-com-chains.ts` |
+| Categoria       | Exemplo               | Comando NPM           | Comando Direto                                                                 |
+| --------------- | --------------------- | --------------------- | ------------------------------------------------------------------------------ |
+| **Fundamentos** | Hello World           | `npm run hello`       | `npx ts-node src/examples/1-fundamentos/1-hello_world.ts`                      |
+| **Fundamentos** | Init Chat Model       | `npm run init-chat`   | `npx ts-node src/examples/1-fundamentos/2-init-chat-model.ts`                  |
+| **Fundamentos** | Prompt Template       | `npm run prompt`      | `npx ts-node src/examples/1-fundamentos/3-prompt-template.ts`                  |
+| **Fundamentos** | Chat Prompt Template  | `npm run chat-prompt` | `npx ts-node src/examples/1-fundamentos/4-chat-prompt-template.ts`             |
+| **Chains**      | Iniciando com Chains  | `npm run chains`      | `npx ts-node src/examples/2-chains-e-processamento/1-iniciando-com-chains.ts`  |
+| **Chains**      | Chains com Decorators | `npm run decorators`  | `npx ts-node src/examples/2-chains-e-processamento/2-chains-com-decorators.ts` |
+| **Chains**      | Runnable Lambda       | `npm run lambda`      | `npx ts-node src/examples/2-chains-e-processamento/3-runnable-lambda.ts`       |
 
 ## ⚡ Scripts Disponíveis
 

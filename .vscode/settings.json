@@ -16,5 +16,11 @@
         "**/node_modules": true
     },
     "editor.formatOnSave": true,
-    "python.envFile": "${workspaceFolder}/intro-langchain-python/.env"
+    "python.envFile": "${workspaceFolder}/intro-langchain-python/.env",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.suggestOnTriggerCharacters": true
 }

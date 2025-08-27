@@ -12,6 +12,7 @@
     "prompt": "ts-node src/examples/1-fundamentos/3-prompt-template.ts",
     "chat-prompt": "ts-node src/examples/1-fundamentos/4-chat-prompt-template.ts",
     "chains": "ts-node src/examples/2-chains-e-processamento/1-iniciando-com-chains.ts",
+    "decorators": "ts-node src/examples/2-chains-e-processamento/2-chains-com-decorators.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

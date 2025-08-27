@@ -13,9 +13,14 @@
     "chat-prompt": "ts-node src/examples/1-fundamentos/4-chat-prompt-template.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "langchain",
+    "typescript",
+    "openai",
+    "llm"
+  ],
+  "author": "Glaucia Lemos <Twitter: @glaucia_lemos86>",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "@langchain/openai": "^0.6.9",

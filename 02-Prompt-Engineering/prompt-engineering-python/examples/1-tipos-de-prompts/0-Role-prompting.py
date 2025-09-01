@@ -6,7 +6,7 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from utils.prompt_helpers import print_llm_result, load_environment
+from utils.prompt_helpers import print_llm_result
 
 load_dotenv()
 

@@ -5,6 +5,7 @@ Este projeto contém exemplos práticos de **Prompt Engineering** usando LangCha
 ## 🎯 Objetivo
 
 Demonstrar técnicas de **Prompt Engineering** através de exemplos práticos:
+
 - ✅ **Prompt Design** - Criação de prompts eficazes
 - ✅ **Few-Shot Learning** - Aprendizado com poucos exemplos
 - ✅ **Chain of Thought** - Raciocínio passo a passo
@@ -15,15 +16,19 @@ Demonstrar técnicas de **Prompt Engineering** através de exemplos práticos:
 ## 🚀 Setup
 
 ### 1. **Ambiente Virtual**
+
 O projeto possui seu próprio ambiente virtual isolado na pasta `.venv/`
 
-### 2. **Dependências** 
+### 2. **Dependências**
+
 Instale as dependências usando:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 3. **Configuração de API Keys**
+
 ```bash
 # Copie o arquivo de exemplo
 cp .env.example .env
@@ -68,42 +73,46 @@ prompt-engineering-python/
 ## 📚 Exemplos Disponíveis
 
 ### 🎯 **1. Fundamentos**
-| Exemplo | Descrição | Comando |
-|---------|-----------|---------|
-| **Basic Prompts** | Prompts básicos e estruturados | `python examples/1-fundamentos/1-basic-prompts.py` |
-| **Prompt Templates** | Templates reutilizáveis | `python examples/1-fundamentos/2-prompt-templates.py` |
-| **Role-Based** | Prompts baseados em papéis | `python examples/1-fundamentos/3-role-based-prompts.py` |
-| **Context Management** | Gerenciamento de contexto | `python examples/1-fundamentos/4-context-management.py` |
+
+| Exemplo                | Descrição                      | Comando                                                 |
+| ---------------------- | ------------------------------ | ------------------------------------------------------- |
+| **Basic Prompts**      | Prompts básicos e estruturados | `python examples/1-fundamentos/1-basic-prompts.py`      |
+| **Prompt Templates**   | Templates reutilizáveis        | `python examples/1-fundamentos/2-prompt-templates.py`   |
+| **Role-Based**         | Prompts baseados em papéis     | `python examples/1-fundamentos/3-role-based-prompts.py` |
+| **Context Management** | Gerenciamento de contexto      | `python examples/1-fundamentos/4-context-management.py` |
 
 ### 🔧 **2. Técnicas**
-| Exemplo | Descrição | Comando |
-|---------|-----------|---------|
-| **Few-Shot Learning** | Aprendizado com poucos exemplos | `python examples/2-techniques/1-few-shot-learning.py` |
-| **Chain of Thought** | Raciocínio passo a passo | `python examples/2-techniques/2-chain-of-thought.py` |
-| **Prompt Chaining** | Encadeamento de prompts | `python examples/2-techniques/3-prompt-chaining.py` |
-| **Optimization** | Otimização de prompts | `python examples/2-techniques/4-prompt-optimization.py` |
+
+| Exemplo               | Descrição                       | Comando                                                 |
+| --------------------- | ------------------------------- | ------------------------------------------------------- |
+| **Few-Shot Learning** | Aprendizado com poucos exemplos | `python examples/2-techniques/1-few-shot-learning.py`   |
+| **Chain of Thought**  | Raciocínio passo a passo        | `python examples/2-techniques/2-chain-of-thought.py`    |
+| **Prompt Chaining**   | Encadeamento de prompts         | `python examples/2-techniques/3-prompt-chaining.py`     |
+| **Optimization**      | Otimização de prompts           | `python examples/2-techniques/4-prompt-optimization.py` |
 
 ### 🚀 **3. Avançado**
-| Exemplo | Descrição | Comando |
-|---------|-----------|---------|
-| **Meta-Prompting** | Prompts que geram prompts | `python examples/3-advanced/1-meta-prompting.py` |
+
+| Exemplo               | Descrição                      | Comando                                                    |
+| --------------------- | ------------------------------ | ---------------------------------------------------------- |
+| **Meta-Prompting**    | Prompts que geram prompts      | `python examples/3-advanced/1-meta-prompting.py`           |
 | **Injection Defense** | Defesa contra prompt injection | `python examples/3-advanced/2-prompt-injection-defense.py` |
-| **Adaptive Prompts** | Prompts adaptativos | `python examples/3-advanced/3-adaptive-prompts.py` |
+| **Adaptive Prompts**  | Prompts adaptativos            | `python examples/3-advanced/3-adaptive-prompts.py`         |
 
 ## 🛠️ Dependências Principais
 
-| Pacote | Versão | Descrição |
-|--------|--------|-----------|
-| **langchain** | ^0.3.27 | Framework principal do LangChain |
-| **langchain-openai** | ^0.3.31 | Integração com OpenAI/GitHub Models |
-| **langchain-google-genai** | ^2.1.9 | Integração com Google Generative AI |
-| **python-dotenv** | ^1.1.1 | Carregamento de variáveis de ambiente |
-| **beautifulsoup4** | ^4.13.5 | Processamento de HTML |
-| **pypdf** | ^6.0.0 | Processamento de PDFs |
+| Pacote                     | Versão  | Descrição                             |
+| -------------------------- | ------- | ------------------------------------- |
+| **langchain**              | ^0.3.27 | Framework principal do LangChain      |
+| **langchain-openai**       | ^0.3.31 | Integração com OpenAI/GitHub Models   |
+| **langchain-google-genai** | ^2.1.9  | Integração com Google Generative AI   |
+| **python-dotenv**          | ^1.1.1  | Carregamento de variáveis de ambiente |
+| **beautifulsoup4**         | ^4.13.5 | Processamento de HTML                 |
+| **pypdf**                  | ^6.0.0  | Processamento de PDFs                 |
 
 ## 🎯 Como Executar
 
 ### **Executar Exemplo Específico**
+
 ```bash
 # Fundamentos
 python examples/1-fundamentos/1-basic-prompts.py
@@ -116,6 +125,7 @@ python examples/3-advanced/1-meta-prompting.py
 ```
 
 ### **Execução Sequencial por Categoria**
+
 ```bash
 # Todos os fundamentos
 python examples/1-fundamentos/1-basic-prompts.py
@@ -133,6 +143,7 @@ python examples/2-techniques/4-prompt-optimization.py
 ## 🧪 Desenvolvimento
 
 ### **Ativação do Ambiente Virtual**
+
 ```bash
 # Windows
 .venv\Scripts\activate
@@ -142,12 +153,15 @@ source .venv/bin/activate
 ```
 
 ### **Instalação de Dependências**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### **Configuração VS Code**
+
 O projeto inclui configurações otimizadas para VS Code:
+
 - ✅ **Interpretador Python** configurado para `.venv`
 - ✅ **Variáveis de ambiente** carregadas automaticamente
 - ✅ **Paths de análise** configurados

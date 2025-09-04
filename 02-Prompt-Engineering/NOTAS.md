@@ -205,3 +205,12 @@ Divide uma tarefa em etapas sequenciais, onde a saída de uma é a entrada da pr
 - Aumenta custo de tokens
 - Depende de parsin correto
 - Complexidade de orquestração
+
+## Conclusões
+
+- Tenha clareza do que você quer como saída
+- Verifique se há a real necessidade da IA pensar passo a passo
+- Abuse na exploração de alternativas
+- Reverificar respostas
+- Gerar muita documentação
+- Buscar e resolver muitos bugs

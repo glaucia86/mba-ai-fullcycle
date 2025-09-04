@@ -10,6 +10,7 @@
     "role-prompting": "ts-node src/examples/1-tipos-de-prompts/0-role-prompting.ts",
     "zero-shot": "ts-node src/examples/1-tipos-de-prompts/1-zero-shot.ts",
     "few-shot": "ts-node src/examples/1-tipos-de-prompts/2-one-few-shot.ts",
+    "cot": "ts-node src/examples/1-tipos-de-prompts/3-CoT.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

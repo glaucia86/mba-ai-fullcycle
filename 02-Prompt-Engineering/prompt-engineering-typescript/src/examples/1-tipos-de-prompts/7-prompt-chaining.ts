@@ -12,6 +12,7 @@ const model = new ChatOpenAI({
     baseURL: getEndpoint("GITHUB_MODELS_ENDPOINT"),
     apiKey: getApiKey("GITHUB_MODELS_TOKEN"),
   },
+  temperature: 0,
 });
 
 const specToSchema = PromptTemplate.fromTemplate(

@@ -14,7 +14,8 @@ load_dotenv()
 model = ChatOpenAI(
     model="gpt-4o",
     base_url=os.environ["GITHUB_MODELS_ENDPOINT"],
-    api_key=SecretStr(os.environ["GITHUB_MODELS_TOKEN"])
+    api_key=SecretStr(os.environ["GITHUB_MODELS_TOKEN"]),
+    temperature=0.0 # Keep it deterministic (important for chaining)
 )
 
 spec_to_schema = PromptTemplate.from_template(

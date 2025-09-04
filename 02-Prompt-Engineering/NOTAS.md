@@ -185,3 +185,23 @@ Alterna entre raciocínio, ação e observação, simulando um ciclo de agente
 - Pode simular ações que não existem
 - Pode inventar observações falsas
 - Mais complexo para usar em produção
+
+## Prompt Chaining
+
+Divide uma tarefa em etapas sequenciais, onde a saída de uma é a entrada da próxima.
+
+### Quando utilizar?
+
+- Converter texto -> traduzir -> resumir
+- Gerar schema -> endpoints -> código Go
+- Analisar logs em etapas: parsing -> classificação -> resposta
+- Criar fluxo de agente com passos definidos
+- Organizar raciocínio complexo em pipelines
+
+### Limitações
+
+- Mais latência por múltiplas etapas
+- Propaga erro de uma etapa para as seguintes
+- Aumenta custo de tokens
+- Depende de parsin correto
+- Complexidade de orquestração

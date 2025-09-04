@@ -14,6 +14,7 @@
     "cot-self": "ts-node src/examples/1-tipos-de-prompts/3.1-CoT-self-consistency.ts",
     "tot": "ts-node src/examples/1-tipos-de-prompts/4-ToT.ts",
     "sot": "ts-node src/examples/1-tipos-de-prompts/5-SoT.ts",
+    "react": "ts-node src/examples/1-tipos-de-prompts/6-ReAct.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

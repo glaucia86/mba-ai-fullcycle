@@ -105,3 +105,43 @@ Instrui o modelo a pensar em etapas antes de dar a resposta final.
 - Nem sempre garante resposta correta
 - Menos útil em tarefas simples
 - Aumenta custo de tokens
+
+## CoT + Self-Consistency
+
+Cria múltiplos raciocínios e escolhe a resposta mais consistente.
+
+### Quando utilizar?
+
+- Confirmar cálculos complexos
+- Validar diferentes hipóteses de arquitetura de sistema.
+- Classificar sentimento em frases curtas
+- Revisar interpretações de um mesmo texto
+- Decidir a melhor opção em múltipla escolha
+
+### Limitações
+
+- Muito mais tokens consumidos
+- Pode ser mais lento
+- Nem sempre converge para a resposta correta
+- Em tarefas fáceis, não agrega muito valor
+- Pode repetir respostas redundantes
+
+## Tree of Thought (ToT)
+
+O modelo explora diferentes caminhos de raciocínio, compara-os e escolhe o melhor.
+
+### Quando utilizar?
+
+- Fazer brainstorming de soluções criativas
+- Planejar um roteiro de viagem considerando alternativas
+- Decidir entre diferentes estratégias de estudo
+- Avaliar prós e contras de uma escolha importante
+- Explorar hipóteses antes de tomar uma decisão final
+
+### Limitações
+
+- Saídas longas e complexas
+- Gasta mais tokens
+- Difícil garantir que os ramos sejam distintos
+- Pode ficar repetitivo
+- Requer instruções claras para funcionar bem

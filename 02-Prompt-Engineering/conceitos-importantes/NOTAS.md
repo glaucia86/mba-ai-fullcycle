@@ -67,11 +67,29 @@ Exemplo: GPT-3 possui 175 bilhões de parâmetros treinados e sua janela de cont
 
 ### Google Gemini
 
-- O desenvolvedor via API pode explicitamente criar um conteúdo cacheado e fazer referências
-- Exemplo: fazer upload de um PDF e armazenar em cache através de um ID. Quando for realizado sobre aquele arquivo, é indicado ao modelo a usar o conteúdo cacheado
+- O desenvolvedor via API pode explicitamente criar um conteúdo cacheado e fazer referências no futuro
+- Exemplo: fazer upload de um PDF e armazenar em cache através de um ID. Quando for realizar "perguntas" sobre aquele arquivo, é indicado ao modelo a usar o conteúdo cacheado
 - Possível definir TTL
 - Cobra por armazenamento / TTL
 - Você possui mais controle
 - Desconto de ~= 75%
 
 ## Batch Prompting
+
+- Estratégia focada em envio de prompts em lote
+- Podemos criar múltiplas perguntas/ requisições em uma mesma chamada
+- LLM processa todas de uma vez e retorna a resposta para cada item do lote
+- Evita fazer inúmeras requisições ao modelo e tende a economizar MUITO dependendo do caso de uso
+
+### Vantagens
+
+- Velocidade. Processar 10 itens em uma chamada tende a ser mais rápido do que fazer 10 chamadas
+- Tende a manter consistência nas respostas, pois todas as "perguntas" estão dentro do mesmo contexto e condição
+- Reduz o custo por requisição. Exemplo: prompt do sistema ou instruções fixas que se repetem a cada requisição
+
+### Limitações
+
+- É importante que as tarefas sejam similares em formato ou objetivo
+- Modelo pode ter dificuldade em responder requisições em contextos muito diferentes
+
+

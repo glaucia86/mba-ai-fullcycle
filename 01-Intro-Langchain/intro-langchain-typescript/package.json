@@ -16,6 +16,7 @@
     "lambda": "ts-node src/examples/2-chains-e-processamento/3-runnable-lambda.ts",
     "pipeline": "ts-node src/examples/2-chains-e-processamento/4-pipeline-de-processamento.ts",
     "sumarizacao": "ts-node src/examples/2-chains-e-processamento/5-sumarizacao.ts",
+    "map-reduce": "ts-node src/examples/2-chains-e-processamento/6-sumarizacao-com-map-reduce.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

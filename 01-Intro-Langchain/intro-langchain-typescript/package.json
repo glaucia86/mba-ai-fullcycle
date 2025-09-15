@@ -14,6 +14,7 @@
     "chains": "ts-node src/examples/2-chains-e-processamento/1-iniciando-com-chains.ts",
     "decorators": "ts-node src/examples/2-chains-e-processamento/2-chains-com-decorators.ts",
     "lambda": "ts-node src/examples/2-chains-e-processamento/3-runnable-lambda.ts",
+    "pipeline": "ts-node src/examples/2-chains-e-processamento/4-pipeline-de-processamento.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

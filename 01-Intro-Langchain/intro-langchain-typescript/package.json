@@ -17,6 +17,7 @@
     "pipeline": "ts-node src/examples/2-chains-e-processamento/4-pipeline-de-processamento.ts",
     "sumarizacao": "ts-node src/examples/2-chains-e-processamento/5-sumarizacao.ts",
     "map-reduce": "ts-node src/examples/2-chains-e-processamento/6-sumarizacao-com-map-reduce.ts",
+    "pipe-sum": "ts-node src/examples/2-chains-e-processamento/7-pipeline-de-sumarizacao.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

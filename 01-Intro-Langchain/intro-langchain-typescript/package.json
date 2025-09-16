@@ -18,6 +18,7 @@
     "sumarizacao": "ts-node src/examples/2-chains-e-processamento/5-sumarizacao.ts",
     "map-reduce": "ts-node src/examples/2-chains-e-processamento/6-sumarizacao-com-map-reduce.ts",
     "pipe-sum": "ts-node src/examples/2-chains-e-processamento/7-pipeline-de-sumarizacao.ts",
+    "react": "ts-node src/examples/3-agentes/agentes-react.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -32,7 +33,8 @@
   "dependencies": {
     "@langchain/openai": "^0.6.9",
     "dotenv": "^17.2.1",
-    "langchain": "^0.3.31"
+    "langchain": "^0.3.31",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",

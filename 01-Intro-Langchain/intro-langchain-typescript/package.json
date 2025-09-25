@@ -20,6 +20,7 @@
     "pipe-sum": "ts-node src/examples/2-chains-e-processamento/7-pipeline-de-sumarizacao.ts",
     "react": "ts-node src/examples/3-agentes/agentes-react.ts",
     "history": "ts-node src/examples/4-gerenciamento-de-memoria/1-armazenamento-de-historico.ts",
+    "history-window": "ts-node src/examples/4-gerenciamento-de-memoria/2-historico-baseado-em-sliding-window.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

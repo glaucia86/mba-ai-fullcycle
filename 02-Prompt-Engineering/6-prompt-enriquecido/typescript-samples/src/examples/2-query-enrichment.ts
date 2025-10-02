@@ -174,14 +174,9 @@ class EnrichmentSession {
   private initialQuestion: string = "";
   private providedInformation: string[] = [];
   private roundNum: number = 0;
-  private rl: readline.Interface;
 
   constructor(enricher: QueryEnricher) {
     this.enricher = enricher;
-    this.rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
   }
 
   private displayEnrichment(enriched: EnrichedQuery): void {
@@ -207,7 +202,15 @@ class EnrichmentSession {
 
   private askQuestion(question: string): Promise<string> {
     return new Promise((resolve) => {
-      this.rl.question(question, (answer) => {
+      // Create a new readline interface for each question to avoid conflicts
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+        terminal: false
+      });
+      
+      rl.question(question, (answer) => {
+        rl.close();
         resolve(answer);
       });
     });
@@ -260,7 +263,18 @@ class EnrichmentSession {
       } else {
         // No new information provided
         console.log("\n>>> No additional information provided in this round.");
-        const userContinue = await this.askQuestion("Continue with remaining clarifications? (yes/no): ");
+        const userContinue = await new Promise<string>((resolve) => {
+          const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
+            terminal: false
+          });
+          
+          rl.question("Continue with remaining clarifications? (yes/no): ", (answer) => {
+            rl.close();
+            resolve(answer);
+          });
+        });
         if (!['yes', 'y'].includes(userContinue.trim().toLowerCase())) {
           console.log(">>> Stopping enrichment with partial information.");
           break;
@@ -281,7 +295,6 @@ class EnrichmentSession {
     console.log("\n=== Final Enriched Question ===");
     console.log(naturalQuestion);
 
-    this.rl.close();
     return [naturalQuestion, enriched];
   }
 }
@@ -311,7 +324,8 @@ class QueryEnrichmentApp {
 
       const rl = readline.createInterface({
         input: process.stdin,
-        output: process.stdout
+        output: process.stdout,
+        terminal: false
       });
 
       const question = await new Promise<string>((resolve) => {

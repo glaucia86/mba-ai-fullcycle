@@ -1,12 +1,11 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { JsonOutputParser, StringOutputParser } from "@langchain/core/output_parsers";
-import * as readline from "readline";
 import {
-  loadEnvironment,
-  getApiKey,
-  getEndpoint,
-} from "../utils/helpers";
+  JsonOutputParser,
+  StringOutputParser,
+} from "@langchain/core/output_parsers";
+import * as readline from "readline";
+import { loadEnvironment, getApiKey, getEndpoint } from "../utils/helpers";
 
 // Load environment variables
 loadEnvironment();
@@ -26,7 +25,7 @@ class EnrichmentConfig {
 
   constructor(options?: Partial<EnrichmentConfig>) {
     Object.assign(this, options);
-    
+
     if (this.requiredInformation === null) {
       // Default configuration for PR review scenario
       this.requiredInformation = [
@@ -34,8 +33,14 @@ class EnrichmentConfig {
         { field: "repository", question: "What is the repository name?" },
         { field: "branch", question: "What is the branch name?" },
         { field: "concerns", question: "What are your specific concerns?" },
-        { field: "style_guide", question: "What style guide should be followed?" },
-        { field: "test_requirements", question: "What are the test requirements?" },
+        {
+          field: "style_guide",
+          question: "What style guide should be followed?",
+        },
+        {
+          field: "test_requirements",
+          question: "What are the test requirements?",
+        },
       ];
     }
   }
@@ -60,7 +65,7 @@ class QueryEnricher {
 
   constructor(config: EnrichmentConfig) {
     this.config = config;
-    
+
     // Initialize LLM with GitHub Models configuration
     this.llm = new ChatOpenAI({
       model: config.modelName,
@@ -80,12 +85,14 @@ class QueryEnricher {
     let questionsText = "";
     if (this.config.requiredInformation) {
       questionsText = this.config.requiredInformation
-        .map(info => `  * "${info.question}"`)
+        .map((info) => `  * "${info.question}"`)
         .join("\n");
     }
 
     const enrichmentPrompt = ChatPromptTemplate.fromMessages([
-      ["system", `You are a query refinement assistant for software development questions.
+      [
+        "system",
+        `You are a query refinement assistant for software development questions.
 
 Your task is to identify missing information and generate clarifying questions.
 
@@ -116,8 +123,9 @@ ${questionsText}
 - entities: Extract ONLY the information that was actually provided
 - is_complex: true if multiple sub-tasks are needed
 
-NEVER set clarifications to empty [] unless ALL 6 required items are explicitly present in the query.`],
-      ["user", "{question}"]
+NEVER set clarifications to empty [] unless ALL 6 required items are explicitly present in the query.`,
+      ],
+      ["user", "{question}"],
     ]);
 
     const parser = new JsonOutputParser();
@@ -126,8 +134,14 @@ NEVER set clarifications to empty [] unless ALL 6 required items are explicitly 
 
   private createRewriteChain() {
     const rewritePrompt = ChatPromptTemplate.fromMessages([
-      ["system", "Rewrite the information into a single, natural, well-formed question. Be concise and clear."],
-      ["user", "Original request: {original}\n\nAdditional context:\n{context}"]
+      [
+        "system",
+        "Rewrite the information into a single, natural, well-formed question. Be concise and clear.",
+      ],
+      [
+        "user",
+        "Original request: {original}\n\nAdditional context:\n{context}",
+      ],
     ]);
 
     return rewritePrompt.pipe(this.llm).pipe(new StringOutputParser());
@@ -142,22 +156,25 @@ NEVER set clarifications to empty [] unless ALL 6 required items are explicitly 
         is_complex: false,
         sub_queries: [],
         clarifications: ["Error processing query"],
-        entities: []
+        entities: [],
       };
     }
   }
 
-  async generateNaturalQuestion(original: string, context: string[]): Promise<string> {
+  async generateNaturalQuestion(
+    original: string,
+    context: string[]
+  ): Promise<string> {
     if (context.length === 0) {
       return original;
     }
 
-    const contextText = context.map(info => `- ${info}`).join("\n");
+    const contextText = context.map((info) => `- ${info}`).join("\n");
 
     try {
       return await this.rewriteChain.invoke({
         original: original,
-        context: contextText
+        context: contextText,
       });
     } catch (error) {
       console.log(`Error generating natural question: ${error}`);
@@ -189,7 +206,7 @@ class EnrichmentSession {
     console.log("(Press Enter to skip any question)");
 
     const answers: string[] = [];
-    
+
     for (const clarification of clarifications) {
       const answer = await this.askQuestion(`  ${clarification}: `);
       if (answer.trim()) {
@@ -206,9 +223,9 @@ class EnrichmentSession {
       const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
-        terminal: false
+        terminal: false,
       });
-      
+
       rl.question(question, (answer) => {
         rl.close();
         resolve(answer);
@@ -219,7 +236,7 @@ class EnrichmentSession {
   private showProgress(newAnswers: string[]): void {
     if (newAnswers.length > 0) {
       console.log(`\n>>> Information provided in this round:`);
-      newAnswers.forEach(answer => {
+      newAnswers.forEach((answer) => {
         console.log(`    - ${answer}`);
       });
     }
@@ -254,7 +271,8 @@ class EnrichmentSession {
       if (newAnswers.length > 0) {
         // Update information and query
         this.providedInformation.push(...newAnswers);
-        currentQuery = this.initialQuestion + " | " + this.providedInformation.join(" | ");
+        currentQuery =
+          this.initialQuestion + " | " + this.providedInformation.join(" | ");
 
         this.showProgress(newAnswers);
 
@@ -267,15 +285,18 @@ class EnrichmentSession {
           const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
-            terminal: false
+            terminal: false,
           });
-          
-          rl.question("Continue with remaining clarifications? (yes/no): ", (answer) => {
-            rl.close();
-            resolve(answer);
-          });
+
+          rl.question(
+            "Continue with remaining clarifications? (yes/no): ",
+            (answer) => {
+              rl.close();
+              resolve(answer);
+            }
+          );
         });
-        if (!['yes', 'y'].includes(userContinue.trim().toLowerCase())) {
+        if (!["yes", "y"].includes(userContinue.trim().toLowerCase())) {
           console.log(">>> Stopping enrichment with partial information.");
           break;
         }
@@ -314,7 +335,9 @@ class QueryEnrichmentApp {
 
   async runInteractive(): Promise<[string, EnrichedQuery] | [null, null]> {
     console.log("Query Enrichment Technique");
-    console.log("This technique transforms vague queries into detailed, specific questions");
+    console.log(
+      "This technique transforms vague queries into detailed, specific questions"
+    );
     console.log("#".repeat(60));
 
     try {
@@ -325,14 +348,17 @@ class QueryEnrichmentApp {
       const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
-        terminal: false
+        terminal: false,
       });
 
       const question = await new Promise<string>((resolve) => {
-        rl.question("\nEnter your question (e.g., 'Review my PR'): ", (answer) => {
-          rl.close();
-          resolve(answer.trim());
-        });
+        rl.question(
+          "\nEnter your question (e.g., 'Review my PR'): ",
+          (answer) => {
+            rl.close();
+            resolve(answer.trim());
+          }
+        );
       });
 
       if (question) {
@@ -342,7 +368,6 @@ class QueryEnrichmentApp {
         console.log("No question provided.");
         return [null, null];
       }
-
     } catch (error) {
       console.log("\n\nProgram interrupted.");
       return [null, null];
@@ -358,8 +383,8 @@ async function main(): Promise<void> {
 }
 
 // Handle Ctrl+C gracefully
-process.on('SIGINT', () => {
-  console.log('\n\nProgram interrupted.');
+process.on("SIGINT", () => {
+  console.log("\n\nProgram interrupted.");
   process.exit(0);
 });
 

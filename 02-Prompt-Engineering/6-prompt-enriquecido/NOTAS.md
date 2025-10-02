@@ -94,3 +94,24 @@ Escreva um parágrafo conciso que responda de forma clara à pergunta abaixo. A 
 
 Pergunta: {query}
 ```
+
+#### ITER-RETGEN
+
+- Loop iterativo que alterna entre geração e recuperaçao
+- Gera rascunhos e depois usa o rascunho para buscar de forma mais específica
+
+Passo a Passo:
+
+- Gere um rascunho com "missing markers"
+- Transforma lacunas em buscas
+- Busca informaçoes relevantes
+- Reescreve a resposta e verifica se há mais lacunas ou possibilidade de expansao
+
+Exemplo:
+
+- Draft
+- Query
+- Fill
+- Expansion (caso tenhamos poucas iterações, expandimos para mais perguntas)
+
+![](./recursos/imagem.png)

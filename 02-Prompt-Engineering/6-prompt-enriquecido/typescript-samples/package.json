@@ -7,7 +7,9 @@
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "watch": "nodemon --exec ts-node src/index.ts",
-    "no-expansion": "ts-node src/examples/0-no-expansion.ts"
+    "no-expansion": "ts-node src/examples/0-no-expansion.ts",
+    "iter-retgen": "ts-node src/examples/1-iter-retgen.ts",
+    "query-enrichment": "ts-node src/examples/2-query-enrichment.ts"
   },
   "keywords": [
     "typescript",

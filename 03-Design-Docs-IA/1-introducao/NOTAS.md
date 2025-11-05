@@ -105,3 +105,63 @@ Entrega do sistema, treinamento dos usuários e correção de falhas.
 ### Documentação na era da IA
 
 #### Documentação na era da IA
+
+- É um ativo extremamente relevante para o processo de desenvolvimento (como testes automatizados são)
+- Tornou-se uma das formas mais eficientes para que os modelos de IA possam utilizá-las como contexto para desenvolvimento, manuntenção, planejamento, etc
+- Possibilidade de geração de forma mais rápida, eficiente e assertiva
+- Ela realmente pode se tornar um "documento vivo"
+
+#### Tipos de documentação e Design Docs
+
+- Produto (Define o que e por quê)
+- Design Docs
+  - Design e arquitetura (como)
+  - Infraestrutura (onde e com o que)
+  - Operacional (como manter)
+  - Conhecimento e referência (como trabalhar)
+
+#### PRD's- Product Requirement Document
+
+- É um documento de PRODUTO que visa alinhar equipes de produto com a equipe técnica
+- Ele existe quando há uma entrega de valor percebido pelo usuário ou negócio
+- Ele deve ser tratado como um Produto/Feature "independente", com objetivos e métricas e escopo próprio
+- Nem toda feature "merece" um PRD, principalmente quando ela é apenas um dos requisitos funcionais de um sistema
+
+#### Níveis de PRDs
+
+- Produto
+- Módulo/Epic
+- Feature
+- Etc
+
+#### Seções de um PRD
+
+Um PRD pode ser totalmente flexível e em muitos casos nem todas as seções necessariamente devem ser utilizadas, principalmente em um projeto pequeno.
+
+- Seções:
+  - Visão e propósito
+  - Contexto e oportunidade
+  - Público e personas
+  - Objetivos e métricas
+  - Escopo
+  - Requisitos de alto nível (capacidades macro que o produto deve oferecer)
+  - Estratégia e fases
+  - Riscos
+  - KPIs
+  - Stakeholders
+
+#### PRD de alto nível - como contextualização macro de um projeto
+
+- Um PRD para um grande projeto é um artefato extremamente importante, pois responderá perguntas como:
+  - Por que esse produto existe?
+  - O que queremos alcançar com esse produto?
+  - O que esse projeto vai entregar e o que não vai entregar?
+  - Para quem estamos construindo isso?
+  - Qual problema esse produto resolve e por que ele importa?
+  - Como pretendemos alcançar os objetivos?
+  - O que o produto deve ser capaz de fazer em linhas gerais?
+  - Como saberemos se o produto deu certo?
+  - O que pode dar errado e como vamos lidar com isso?
+  - Qual o roadmap desse projeto?
+  - Quem está envolvido e qual o papel de cada um?
+  - Como esse produto se conecta à estratégia da empresa?

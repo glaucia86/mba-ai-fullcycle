@@ -43,3 +43,31 @@ HDL define o "terreno" onde as features serão implementadas.
 - Segurança
 - Observabilidade
 - Riscos
+
+### Feature Design Doc
+
+É O "como implementar uma feature específica" no contexto definido pelo HLD. Aqui vivem os contratos públicos reais, o comportamento exato, fluxos detalhados, erros, semântica de headers, opções de configuração via código, e critérios de aceite técnicos. É o documento que habilita a implementação sem ambiguidades.
+
+Importante utilizar sempre que a feature expõe APIs, altera contratos, adiciona opções de configuração e tem efeitos claros em segurança, performance ou compatibilidade.
+
+Responde perguntas como:
+
+- Quais os principais detalhes técnicos dessa feature?
+- Como essa feature se comporta em tempo de execução?
+- Quais contratos e interfaces ela expõe para integração?
+- Como ela é configurada e quais dependências exige?
+- Como lida com erros, exceções e concorrência?
+- Como validar que a implementação está correta e atende aos critérios técnicos?
+
+#### Seções encontradas em um FDD
+
+- Contexto e motivação técnica
+- Objetivos técnicos
+- Escopo e exclusões
+- Fluxos detalhados e diagramas
+- Contratos públicos (assinaturas, endpoints, headers, exemplos)
+- Erros, exceções e fallback
+- Observabilidade
+- Dependências e compatibilidade
+- Critérios de aceite técnicos
+- Riscos e mitigação

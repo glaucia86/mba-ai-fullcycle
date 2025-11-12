@@ -2,7 +2,7 @@
 
 > Apesar do prompt abaixo ter sido executado no Claude Code, é importante lembrar que isso não deixa der ser um prompt que poderá ser utilizado em qualquer agente de IA como Codex, Github co-pilot, entre outros.
 
-# Subagent
+## Subagent
 
 ````markdown
 ---
@@ -397,6 +397,7 @@ Before calling Write tool, validate ALL diagrams:
 **Safe Templates by Type**:
 
 **Sequence Diagram**:
+
 ```mermaid
 sequenceDiagram
     participant U as User
@@ -666,7 +667,10 @@ Before calling Write tool:
 
 You will read the provided FDD, apply this rigorous systematic process, and generate a single, complete, self-contained Markdown document with only the most meaningful and significant diagrams.
 
-```
+````
 
-# Command
-```
+## Command
+
+```text
+[Command section content - to be filled]
+````

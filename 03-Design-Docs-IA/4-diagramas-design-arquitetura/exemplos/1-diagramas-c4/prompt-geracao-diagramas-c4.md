@@ -2,7 +2,7 @@
 
 > Apesar do prompt abaixo ter sido executado no Claude Code, é importante lembrar que isso não deixa der ser um prompt que poderá ser utilizado em qualquer agente de IA como Codex, Github co-pilot, entre outros)
 
-# Subagent
+## Subagent
 
 ```markdown
 ---
@@ -45,32 +45,30 @@ Use the specified output folder for ALL generated files (.puml and .md).
 4. **Examples**:
 
    **CORRECT Portuguese**:
-```
 
-Container(app, "Serviço de Pagamentos", "Java 17", "Processa transações financeiras")
-Component(api, "API Pública", "Expõe operações REST")
-note right
-Funcionalidades
-• Autenticação via JWT
-• Validação de cartão
-Configuração via arquivo YAML
-end note
+   ```plantuml
+   Container(app, "Serviço de Pagamentos", "Java 17", "Processa transações financeiras")
+   Component(api, "API Pública", "Expõe operações REST")
+   note right
+   Funcionalidades
+   • Autenticação via JWT
+   • Validação de cartão
+   Configuração via arquivo YAML
+   end note
+   ```
 
-```
+   **INCORRECT Portuguese** (missing accents):
 
-**INCORRECT Portuguese** (missing accents):
-```
-
-Container(app, "Servico de Pagamentos", "Java 17", "Processa transacoes financeiras")
-Component(api, "API Publica", "Expoe operacoes REST")
-note right
-Funcionalidades
-• Autenticacao via JWT
-• Validacao de cartao
-Configuracao via arquivo YAML
-end note
-
-```
+   ```plantuml
+   Container(app, "Servico de Pagamentos", "Java 17", "Processa transacoes financeiras")
+   Component(api, "API Publica", "Expoe operacoes REST")
+   note right
+   Funcionalidades
+   • Autenticacao via JWT
+   • Validacao de cartao
+   Configuracao via arquivo YAML
+   end note
+   ```
 
 5. **Validation**:
 - Before creating files, verify all text uses proper accents
@@ -84,6 +82,7 @@ end note
 **STEP 2**: Generate PlantUML diagram code for each level with adequate information.
 
 **STEP 3 - MOST IMPORTANT**: Call Write tool to create SEPARATE .puml files:
+
 - Generate C1? → Call Write: `[output-folder]/[feature]-c1.puml`
 - Generate C2? → Call Write: `[output-folder]/[feature]-c2.puml`
 - Generate C3? → Call Write: `[output-folder]/[feature]-c3.puml`
@@ -128,9 +127,8 @@ Read the FDD and determine which C4 levels have sufficient information.
 For each level with sufficient info, generate the PlantUML code.
 
 ### STEP 3: CREATE FILES (MOST IMPORTANT)
-**Immediately after generating each diagram, call Write tool to create the .puml file:**
 
-```
+**Immediately after generating each diagram, call Write tool to create the .puml file:**
 
 Example workflow:
 
@@ -140,9 +138,8 @@ Example workflow:
 4. Generate C4 diagram content → Call Write tool with file_path: "[output-folder]/[feature]-c4.puml"
 5. Finally, create [output-folder]/[feature]-c4.md with ONLY analysis (NO PlantUML code)
 
-````
-
 ### VERIFICATION CHECKLIST (Before you report completion):
+
 - [ ] Did you call Write tool for each .puml file? (Count: C1, C2, C3, C4 = 4 Write calls)
 - [ ] Is each .puml file in the specified output folder?
 - [ ] Does the .md file contain ZERO PlantUML code?
@@ -232,17 +229,18 @@ When you receive a file path or folder:
    - Example: `title C3 • Component - Serviço de Autenticação`
 
 2. **UTF-8 Charset Declaration (MANDATORY)**: ALL .puml files MUST include charset declaration as second line:
+
    ```plantuml
    @startuml [feature-name]-c[N]
    !pragma charset UTF-8
    !include <C4/C4_Context>
-````
+   ```
 
-This is CRITICAL for rendering accents and special characters in ANY language.
+   This is CRITICAL for rendering accents and special characters in ANY language.
 
 3. **Include Standardization**: Use this format for C1-C3:
 
-   ```
+   ```plantuml
    !include <C4/C4_Context>  (or <C4/C4_Container>, <C4/C4_Component>)
    ```
 

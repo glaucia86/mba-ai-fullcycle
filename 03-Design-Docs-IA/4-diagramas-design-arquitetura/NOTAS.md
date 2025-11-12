@@ -28,3 +28,26 @@
 
 > [!NOTE]
 > Referência: **[https://c4model.com/diagrams/container](https://c4model.com/diagrams/container)**
+
+### C3: Component Diagram (visão de componentes)
+
+- Organiza cada container em módulos, pacotes ou camadas
+- Deixa claro onde estão as responsabilidades
+- Auxilia desenvolvedores a manterem coesão e baixo acoplamento
+
+![alt text](./exemplos/1-diagramas-c4/images/image-02.png)
+
+> [!NOTE]
+> Referência: **[https://c4model.com/diagrams/component](https://c4model.com/diagrams/component)**
+
+### C4: Code Diagram (visão de código)
+
+- Aprofunda em classes, funções ou estruturas
+- Usado apenas quando há necessidade real de padronização ou auditoria.
+- Não é obrigatório na maioria dos projetos
+- Raramente recomendado
+
+![alt text](./exemplos/1-diagramas-c4/images/image-04.png)
+
+> [!NOTE]
+> Referência: **[https://c4model.com/diagrams/code](https://c4model.com/diagrams/code)**

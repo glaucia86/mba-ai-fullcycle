@@ -70,3 +70,83 @@ flowchart TD
     C --> E[Fim]
     D --> E[Fim]
 ```
+
+### Sequence Diagram (diagramas de sequência)
+
+- Mostra a troca de mensagens entre componentes ao longo do tempo
+- Excelente para visualizar chamadas entre serviços, APIs e banco de dados
+- Ajuda a identificar dependências e gargalos de comunicação
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant API
+    participant DB
+
+    User->>API: Solicita dados
+    API->>DB: Consulta dados
+    DB-->>API: Retorna dados
+    API-->>User: Envia resposta
+```
+
+### Class Diagram (diagramas de classes)
+
+- Exibe classes, structs e seus relacionamentos
+- Mostra atributos, métodos e heranças
+- Bom para explicar a estrutura interna do código e o design do domínio
+
+```mermaid
+classDiagram
+    class Pessoa {
+        +String nome
+        +int idade
+        +falar()
+    }
+    class Aluno {
+        +String matricula
+        +estudar()
+    }
+    Pessoa <|-- Aluno
+```
+
+### ER Diagram (diagramas de entidade-relacionamento)
+
+- Exibe classes, structs e seus relacionamentos
+- Mostra atributos, métodos e heranças
+- Bom para explicar a estrutura interna do código e o design do domínio
+
+```mermaid
+erDiagram
+    CLIENTE ||--o{ PEDIDO : faz
+    PEDIDO ||--|{ ITEM : contém
+    CLIENTE {
+        int id
+        String nome
+        String email
+    }
+    PEDIDO {
+        int id
+        Date data
+        float total
+    }
+    ITEM {
+        int id
+        String descricao
+        float preco
+    }
+```
+
+### State Diagram (diagramas de estado)
+
+- Mostra os estados possíveis de um sistema e suas transações
+- Indicado para workflows, automações e máquinas de estado
+- Ajuda a entender como o sistema reage a diferentes eventos e condições
+
+```mermaid
+stateDiagram-v2
+    [*] --> Estado1
+    Estado1 --> Estado2 : EventoA
+    Estado2 --> Estado3 : EventoB
+    Estado3 --> [*] : EventoC
+    Estado2 --> Estado1 : EventoD
+```

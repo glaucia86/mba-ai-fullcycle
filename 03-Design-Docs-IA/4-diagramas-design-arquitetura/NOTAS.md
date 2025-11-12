@@ -51,3 +51,22 @@
 
 > [!NOTE]
 > Referência: **[https://c4model.com/diagrams/code](https://c4model.com/diagrams/code)**
+
+## Diagramas Mermaid
+
+Mermaid é uma linguagem de marcação que transforma texto em diagramas. Ela permite representar fluxos, interações e estruturas de sistemas de forma simples e legível dentro de documentos técnicos. Por gerar gráficos diretamente do código, facilita a manutenção, revisão e automação por agentes de IA, tornando a documentação sempre atualizada e consistente
+
+### Flowchart (fluxogramas)
+
+- Representa fluxos de decisão, etapas e caminhhos alternativos
+- Ideal para mostrar lógica de processos e pipelines
+- Útil em documentações de sistemas, APIs e automações
+
+```mermaid
+flowchart TD
+    A[Início] --> B{Decisão}
+    B -- Sim --> C[Processo 1]
+    B -- Não --> D[Processo 2]
+    C --> E[Fim]
+    D --> E[Fim]
+```

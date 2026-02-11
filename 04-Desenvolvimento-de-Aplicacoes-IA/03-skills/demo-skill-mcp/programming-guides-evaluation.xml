@@ -1,0 +1,42 @@
+<evaluation>
+   <qa_pair>
+      <question>Which guide contains information about "streamable HTTP" as a transport option for MCP servers?</question>
+      <answer>mcp_best_practices.md</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>What validation library is recommended for Python MCP server development?</question>
+      <answer>Pydantic</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>Which guide mentions "FastMCP" as a framework for building MCP servers?</question>
+      <answer>python_mcp_server.md</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>What is the naming convention format for Node/TypeScript MCP servers?</question>
+      <answer>{service}-mcp-server</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>Which guide discusses creating comprehensive evaluations to test MCP server quality?</question>
+      <answer>evaluation.md</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>What is the recommended maximum character limit for MCP server responses?</question>
+      <answer>25000</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>Which programming language guide mentions "tsx" as a development tool?</question>
+      <answer>node_mcp_server.md</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>Which guide contains examples of tool registration using the @mcp.tool decorator?</question>
+      <answer>python_mcp_server.md</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>What schema validation library is recommended for TypeScript MCP servers?</question>
+      <answer>Zod</answer>
+   </qa_pair>
+   <qa_pair>
+      <question>How many programming best practices guides are available in total?</question>
+      <answer>4</answer>
+   </qa_pair>
+</evaluation>

@@ -47,9 +47,11 @@ description: Guide users through a structured workflow for co-authoring document
 
 - Exemplo de uma Skill com Frontmatter: **[doc-coauthoring](https://github.com/anthropics/skills/edit/main/skills/doc-coauthoring/SKILL.md)**
 
-> [!NOTE]: é muito importante dizer as palavras que o agente deve usar para acionar a skill. Geralmente o que está na descrição do frontmatter é o que o agente irá usar para decidir se a skill é relevante ou não para a tarefa que ele precisa resolver. Por isso, é fundamental que o frontmatter seja bem escrito e contenha informações claras e precisas sobre a skill.
+> [!NOTE]
+> É muito importante dizer as palavras que o agente deve usar para acionar a skill. Geralmente o que está na descrição do frontmatter é o que o agente irá usar para decidir se a skill é relevante ou não para a tarefa que ele precisa resolver. Por isso, é fundamental que o frontmatter seja bem escrito e contenha informações claras e precisas sobre a skill.
 
-> [!TIP]: para uma melhor execução de uma determinada skill seria bom ter apenas até 350 linhas de informação, ou seja, o ideal é que a skill seja o mais objetiva possível, contendo apenas as informações necessárias para a execução da tarefa. Skills muito longas podem acabar confundindo o agente e dificultando a execução da tarefa. Por isso, é importante ser objetivo e direto ao ponto na construção da skill.
+> [!TIP]
+> Para uma melhor execução de uma determinada skill seria bom ter apenas até 350 linhas de informação, ou seja, o ideal é que a skill seja o mais objetiva possível, contendo apenas as informações necessárias para a execução da tarefa. Skills muito longas podem acabar confundindo o agente e dificultando a execução da tarefa. Por isso, é importante ser objetivo e direto ao ponto na construção da skill.
 
 ### Skills e arquivos de referência
 
@@ -57,7 +59,8 @@ description: Guide users through a structured workflow for co-authoring document
 
 - Exemplo de uma skill com arquivos de referência: **[mcp-builder](https://github.com/anthropics/skills/tree/main/skills/mcp-builder/reference)**
 
-> ![!NOTE]: esses arquivos de referencia podem ser longos. Pois explica detalhadamente como deve ser implementado algo que corresponda a skill. O importante é que esses arquivos de referência sejam bem organizados e contenham apenas as informações relevantes para a execução da skill, para evitar confusão e facilitar a execução da tarefa pelo agente.
+> [!NOTE]
+> Esses arquivos de referência podem ser longos, pois explicam detalhadamente como deve ser implementado algo que corresponda à skill. O importante é que esses arquivos de referência sejam bem organizados e contenham apenas as informações relevantes para a execução da skill, para evitar confusão e facilitar a execução da tarefa pelo agente.
 
 ### Criando servidor MCP com Skill
 

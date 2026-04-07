@@ -28,9 +28,9 @@
 
 Abaixo estão alguns repositórios de Skills, mas é importante ressaltar que o ideal é criar Skills personalizadas para cada projeto, de acordo com as necessidades específicas do projeto.
 
-> Link: [Skills Repository - Anthropic](https://github.com/anthropics/skills)
-> Link: [Skills.sh - Vercel](https://skills.sh/)
-> Link: [Superpowers - Obra](https://github.com/obra/superpowers)
+- > Link: [Skills Repository - Anthropic](https://github.com/anthropics/skills)
+- > Link: [Skills.sh - Vercel](https://skills.sh/)
+- > Link: [Superpowers - Obra](https://github.com/obra/superpowers)
 
 ### Frontmatter
 

@@ -249,3 +249,8 @@ Critérios de qualidade da resposta:
 ```
 
 # Test Guide Skill
+
+- Crie ou utilize uma skill adequada para ser usada como guideline para criação/manuntenção dos testes, bem como para auditar os testes atuais.
+
+> [!INFO]
+> Exemplo de skill de Test Guide: **[https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md](https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md)**

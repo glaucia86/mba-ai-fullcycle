@@ -10,7 +10,7 @@
 - **Unit Testes:**
   - simples unidades (uma classe, um método, etc. Sem dependências externas)
 
-> [!DANGER]
+> [!WARNING]
 > Mocks. IA pode tentar gerar muitos mocks para realizar os testes. Tome ainda mais cuidado com FrontEnd
 
 - **Integração:**
@@ -27,7 +27,7 @@
   - Abrir o browser executar uma ação que deve chamar a API
   - Verificação de UI
 
-> [!DANGER]
+> [!WARNING]
 > A falta de definição clara sobre o que cada categoria de teste representa pode gerar situações catastróficas.
 
 ## Cobertura de código
@@ -60,7 +60,7 @@ Assim, a discussão sobre testes desnecessários não é apenas uma crítica à 
 
 A geração de testes com IA precisa ser guiada por contexto, referências e revisão crítica. Sem isso, a tendência é produzir cobertura artificial: muitos testes, pouca utilidade. O uso de instruções temporárias, análise de redundância e memória de padrões inadequados é uma forma de evoluir a qualidade dos testes gerados e evitar que a IA perpetue más práticas.
 
-> [!INFO]
+> [!NOTE]
 > exemplo de projeto greenfield que demonstra como criar uma aplicação do zero utilizando IA de forma adequada no processo de desenvolvimento: **[https://github.com/devfullcycle/mba-ia-greenfield-project](https://github.com/devfullcycle/mba-ia-greenfield-project)**
 
 ## Criando na prática planejamento para remoção de testes sem valor
@@ -252,5 +252,5 @@ Critérios de qualidade da resposta:
 
 - Crie ou utilize uma skill adequada para ser usada como guideline para criação/manuntenção dos testes, bem como para auditar os testes atuais.
 
-> [!INFO]
+> [!NOTE]
 > Exemplo de skill de Test Guide: **[https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md](https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md)**

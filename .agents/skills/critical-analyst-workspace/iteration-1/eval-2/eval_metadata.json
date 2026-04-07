@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "codigo-vs-especificacao-desconto",
+  "prompt": "Comparar código Python de calcularDesconto com spec: desconto VIP errado (15 vs 20%), exceção vs None, parâmetro diferente, regra mínimo R$1 ausente.",
+  "assertions": [
+    "O relatório identifica a contradição do desconto VIP (20% na spec vs 15% no código)",
+    "O relatório identifica a contradição do tratamento de preço negativo (exceção vs retorno None)",
+    "O relatório identifica a inconsistência no nome do parâmetro (cliente vs tipo_usuario)",
+    "O relatório identifica a lacuna da regra do preço mínimo de R$1,00 não implementada",
+    "Cada problema encontrado tem uma sugestão de correção",
+    "O relatório tem estrutura com seções numeradas por tipo de problema"
+  ]
+}

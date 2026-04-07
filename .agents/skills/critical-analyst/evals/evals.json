@@ -1,0 +1,48 @@
+{
+  "skill_name": "critical-analyst",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analise criticamente este tutorial de deploy:\n\n---\n# Como fazer deploy da aplicação\n\n## Pré-requisitos\n- Docker instalado\n- Acesso ao repositório\n\n## Passo a passo\n1. Clone o repositório: `git clone https://github.com/empresa/app`\n2. Faça o build da imagem: `docker build -t minha-app .`\n3. Suba a aplicação: `docker run -d -p 80:3000 minha-app`\n4. A aplicação estará disponível rapidamente em http://app.empresa.com\n\n## Configuração\nAs variáveis de ambiente devem ser configuradas antes de subir a aplicação. Consulte o arquivo `.env.example` para as variáveis necessárias.\n\n## Rollback\nEm caso de problemas, execute: `docker stop minha-app && docker run -d -p 80:3000 minha-app:latest`\n---",
+      "expected_output": "Relatório com pelo menos: uma ambiguidade ('rapidamente', sem definição de tempo), uma lacuna lógica (variáveis de ambiente mencionadas depois do deploy, e o comando docker run não inclui --env-file), e uma inconsistência ou contradição no rollback (rodar a mesma imagem 'latest' que provavelmente causou o problema).",
+      "files": [],
+      "assertions": [
+        "O relatório inclui a seção '1. Contradições' (mesmo que vazia com 'None found.')",
+        "O relatório inclui a seção '2. Ambiguidades'",
+        "O relatório inclui a seção '3. Inconsistências'",
+        "O relatório inclui a seção '4. Lacunas Lógicas' ou '4. Logical Gaps'",
+        "O relatório menciona o problema das variáveis de ambiente não estarem configuradas antes do docker run",
+        "O relatório menciona a ambiguidade de 'rapidamente' ou a falta de definição de tempo/disponibilidade",
+        "O relatório oferece sugestão de correção para pelo menos um problema encontrado",
+        "O relatório começa com uma seção de Sumário/Summary"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Compare este código com a especificação e encontre todos os problemas:\n\n## Especificação\nA função `calcularDesconto(preco, cliente)` deve:\n- Retornar o preço com desconto aplicado\n- Clientes VIP recebem 20% de desconto\n- Clientes regulares recebem 10% de desconto\n- Preços negativos devem lançar uma exceção `PrecoInvalidoError`\n- O desconto nunca deve resultar em preço menor que R$ 1,00\n\n## Implementação\n```python\ndef calcularDesconto(preco, tipo_usuario):\n    if preco < 0:\n        return None\n    \n    if tipo_usuario == 'vip':\n        desconto = 0.15  # 15% para VIP\n    else:\n        desconto = 0.10\n    \n    resultado = preco * (1 - desconto)\n    return resultado\n```",
+      "expected_output": "Relatório com: contradição (VIP deve receber 20% mas código usa 15%), contradição (preço negativo deve lançar exceção mas código retorna None), inconsistência (parâmetro chama 'cliente' na spec e 'tipo_usuario' no código), lacuna lógica (regra do preço mínimo R$1,00 não está implementada).",
+      "files": [],
+      "assertions": [
+        "O relatório identifica a contradição do desconto VIP (20% na spec vs 15% no código)",
+        "O relatório identifica a contradição do tratamento de preço negativo (exceção vs retorno None)",
+        "O relatório identifica a inconsistência no nome do parâmetro (cliente vs tipo_usuario)",
+        "O relatório identifica a lacuna da regra do preço mínimo de R$1,00 não implementada",
+        "Cada problema encontrado tem uma sugestão de correção",
+        "O relatório tem estrutura com seções numeradas por tipo de problema"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Revise este documento de requisitos para encontrar ambiguidades, inconsistências e outros problemas:\n\n---\n# Requisitos do Sistema de Notificações\n\n## RF-01: Envio de e-mail\nO sistema deve enviar e-mails para usuários ativos. E-mails devem ser entregues em tempo hábil.\n\n## RF-02: Limite de envio\nCada usuário pode receber no máximo 10 notificações por dia.\n\n## RF-03: Preferências do usuário\nUsuários podem desativar notificações nas configurações de perfil. Usuários inativos não recebem notificações.\n\n## RF-04: Notificações urgentes\nMensagens marcadas como urgentes devem ser enviadas imediatamente, ignorando as preferências de notificação do usuário. O limite diário não se aplica a mensagens urgentes.\n\n## RF-05: Conformidade com LGPD\nO sistema deve respeitar as preferências de comunicação do usuário conforme exigido pela LGPD.\n\n## RF-06: Relatório de entregas\nO relatório deve mostrar a taxa de entrega dos últimos 30 dias. Relatórios são gerados a cada 7 dias para usuários administradores e diariamente para a equipe de suporte.\n---",
+      "expected_output": "Relatório identificando: ambiguidades ('tempo hábil', 'usuários ativos'), contradição entre RF-04 (ignorar preferências) e RF-05 (respeitar preferências LGPD) e RF-03 (usuário pode desativar), inconsistência entre RF-02 e RF-04 (limite de 10 vs sem limite para urgentes), lacuna lógica (o que acontece com usuários inativos que recebem mensagem urgente?).",
+      "files": [],
+      "assertions": [
+        "O relatório identifica a contradição entre RF-04 (ignorar preferências) e RF-05/RF-03 (respeitar preferências)",
+        "O relatório identifica a ambiguidade de 'tempo hábil' sem definição concreta",
+        "O relatório menciona alguma ambiguidade relacionada a 'usuários ativos' vs 'usuários inativos'",
+        "O relatório tem sugestões de correção concretas (não apenas 'defina melhor')",
+        "O relatório cobre todas as 4 categorias de análise"
+      ]
+    }
+  ]
+}

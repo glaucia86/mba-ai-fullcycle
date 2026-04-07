@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/// <reference types="node" />
 /**
  * MCP Server for Programming Best Practices Guides.
  *

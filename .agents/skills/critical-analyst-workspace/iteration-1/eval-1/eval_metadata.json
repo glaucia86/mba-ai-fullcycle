@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "tutorial-deploy-com-lacunas",
+  "prompt": "Analise criticamente este tutorial de deploy com variáveis de ambiente fora de ordem, 'rapidamente' sem definição e rollback problemático.",
+  "assertions": [
+    "O relatório inclui a seção '1. Contradições' (mesmo que com 'None found.')",
+    "O relatório inclui a seção '2. Ambiguidades'",
+    "O relatório inclui a seção '3. Inconsistências'",
+    "O relatório inclui a seção '4. Lacunas Lógicas' ou '4. Logical Gaps'",
+    "O relatório menciona o problema das variáveis de ambiente não estarem configuradas antes do docker run",
+    "O relatório menciona a ambiguidade de 'rapidamente' ou falta de definição de tempo/disponibilidade",
+    "O relatório oferece sugestão de correção para pelo menos um problema encontrado",
+    "O relatório começa com uma seção de Sumário/Summary"
+  ]
+}

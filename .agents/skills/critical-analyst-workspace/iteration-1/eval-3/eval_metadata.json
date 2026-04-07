@@ -1,0 +1,12 @@
+{
+  "eval_id": 3,
+  "eval_name": "requisitos-sistema-notificacoes",
+  "prompt": "Revisar documento de requisitos de notificações com contradição RF-04 vs RF-05/LGPD, ambiguidade 'tempo hábil', inconsistência de limites urgentes vs regulares.",
+  "assertions": [
+    "O relatório identifica a contradição entre RF-04 (ignorar preferências) e RF-05/RF-03 (respeitar preferências)",
+    "O relatório identifica a ambiguidade de 'tempo hábil' sem definição concreta",
+    "O relatório menciona alguma ambiguidade relacionada a 'usuários ativos' vs 'usuários inativos'",
+    "O relatório tem sugestões de correção concretas (não apenas 'defina melhor')",
+    "O relatório cobre todas as 4 categorias de análise"
+  ]
+}

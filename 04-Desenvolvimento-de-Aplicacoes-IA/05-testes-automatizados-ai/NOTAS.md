@@ -63,6 +63,91 @@ A geração de testes com IA precisa ser guiada por contexto, referências e rev
 > [!INFO]
 > exemplo de projeto greenfield que demonstra como criar uma aplicação do zero utilizando IA de forma adequada no processo de desenvolvimento: **[https://github.com/devfullcycle/mba-ia-greenfield-project](https://github.com/devfullcycle/mba-ia-greenfield-project)**
 
+## Criando na prática planejamento para remoção de testes sem valor
+
+Segue um exemplo de prompt para solicitar um planejamento de remoção de testes sem valor: (usando o plan mode)
+
+```md
+Quero que você mapeie todos os testes backend e frontend. Avalie quais testes realmente geram valor para a aplicação e cobrem fluxos importantes de negócio, de feature, que garantem realmente problemas de regressão. Baseado nisso, entenda quais são os testes considerados desnecessários, redundantes, inúteis, que não geram valor para a aplicação e que não deveriam existir. Obviamente, se há regras de negócio e componentes que precisam manter a consistência e estado do projeto, esses testes deverão existir. Traga para mim a quantidade aproximada de testes que eu poderia remover e que não geraria um impacto negativo no projeto, principalmente referente a regressões. Evite totalmente testes que já em tese são cobertos pelas próprias bibliotecas, exemplo: zod, pytdantic, entre outros. Traga para mim separado entre backend e frontend.
+```
+
+Agora segue uma versão melhorada do prompt (versão: golden prompt):
+
+```md
+Você é um(a) Staff QA Engineer especializado(a) em estratégia de testes, risco de regressão e qualidade de suíte em projetos backend e frontend.
+
+Objetivo:
+Mapear todos os testes existentes, separar o que gera valor real para o produto e identificar testes redundantes/inúteis que podem ser removidos com baixo risco de regressão.
+
+Escopo:
+
+- Backend e frontend.
+- Testes unitários, integração e E2E.
+- Código de teste + fluxos de negócio/feature cobertos.
+- Não criar nem remover testes; apenas analisar e propor plano de otimização.
+
+Regras obrigatórias:
+
+1. Baseie-se apenas em evidências do repositório (arquivos de teste, código, fixtures, utilitários e cobertura observável).
+2. Classifique valor de cada teste por risco real mitigado, não por quantidade de asserts.
+3. Não marque para remoção testes que protegem regra de negócio, consistência de estado, contratos críticos ou fluxos de receita/segurança.
+4. Marque como “suspeita de redundância” quando múltiplos testes cobrem o mesmo comportamento sem ganho incremental.
+5. Evite testes de comportamento já garantido por bibliotecas/frameworks (ex.: validações internas de zod/pydantic), exceto quando houver regra customizada de negócio por cima.
+6. Sempre separar análise entre backend e frontend.
+7. Quando faltar contexto, explicite suposição e impacto da incerteza.
+8. Entregue uma estimativa de quantos testes podem ser removidos com baixo risco, por camada.
+
+Critérios para classificar “teste de valor”:
+
+- Cobre fluxo crítico de negócio.
+- Detecta regressão relevante para usuário/receita/segurança.
+- Valida integração real entre componentes ou contratos.
+- Protege comportamento customizado (não apenas default de biblioteca).
+- Reduz risco em cenários de erro, borda ou estado inconsistente.
+
+Critérios para classificar “teste removível”:
+
+- Redundante com outro teste mais abrangente.
+- Cobre detalhe de implementação sem valor de negócio.
+- Revalida comportamento nativo de biblioteca/framework.
+- Frágil/instável sem sinalizar risco real.
+- Custo de manutenção alto com benefício baixo.
+
+Formato de saída obrigatório (somente tabelas + resumo final):
+
+## Tabela 1 - Inventário de cobertura atual
+
+| ID  | Camada (Backend/Frontend) | Tipo (Unit/Integration/E2E) | Arquivo/Cenário | Fluxo/Feature coberto | Risco mitigado | Valor (Alto/Médio/Baixo) |
+| --- | ------------------------- | --------------------------- | --------------- | --------------------- | -------------- | ------------------------ |
+
+## Tabela 2 - Testes de alto valor que devem permanecer
+
+| ID  | Camada | Teste/Cenário | Motivo de valor | Regressão evitada | Criticidade (Alta/Média/Baixa) |
+| --- | ------ | ------------- | --------------- | ----------------- | ------------------------------ |
+
+## Tabela 3 - Candidatos à remoção ou consolidação
+
+| ID  | Camada | Teste/Cenário | Motivo (redundante/inútil/baixo valor) | Cobertura equivalente existente | Risco de remover (Baixo/Médio/Alto) | Recomendação (Remover/Consolidar/Manter) |
+| --- | ------ | ------------- | -------------------------------------- | ------------------------------- | ----------------------------------- | ---------------------------------------- |
+
+## Tabela 4 - Quantitativo estimado de remoção segura
+
+| Camada | Total atual (estimado) | Candidatos à remoção (baixo risco) | Candidatos à consolidação | % otimização estimada | Nível de confiança (Alto/Médio/Baixo) |
+| ------ | ---------------------- | ---------------------------------- | ------------------------- | --------------------- | ------------------------------------- |
+
+## Tabela 5 - Exclusões por “cobertura de biblioteca”
+
+| Camada | Biblioteca/Framework | Tipo de teste redundante identificado | Exemplo de padrão encontrado | Ação recomendada |
+| ------ | -------------------- | ------------------------------------- | ---------------------------- | ---------------- |
+
+## Resumo executivo (máximo 10 linhas)
+
+- Principais ganhos ao remover/consolidar testes.
+- Principais riscos a evitar durante a limpeza.
+- Ordem sugerida de execução (backend vs frontend).
+- Estimativa final total de testes removíveis sem impacto negativo relevante em regressão.
+```
+
 ## Report dos testes que poderiam ser removidos
 
 ![image](./resources/testes.png)
@@ -82,5 +167,85 @@ A conclusão principal é que a estratégia de testes precisa ser revisada perio
 ### Síntese
 
 A principal ideia é que **qualidade de testes não deve ser medida apenas por quantidade ou cobertura**, mas pelo valor que cada teste entrega. Uma boa estratégia é aquela que evita redundâncias, respeita a pirâmide de testes e concentra esforço na validação do que realmente importa para a estabilidade e a evolução do software.
+
+## Gerando report the 'Edge Cases' que não foram testados
+
+Use o seguinte prompt para gerar um relatório dos 'edge cases' que não foram testados: (usando o plan mode)
+
+```md
+Avalie todos os testes do sistema, incluindo frontend e backend. Identifique os testes automatizados e os principais aspectos que esses testes estão cobrindo. Porém, baseado nesse mapeamento, verifique testes de edge cases, ou seja, testes que tragam um possível caminho triste, que não estão cobertos pelos testes atuais, como error handling, rate limiting, segurança, fluxos principais que podem ter excessões não tratadas, entre outros. Explore o código, entenda os seus principais fluxos, comportamentos e possíveis problemas que podem acontecer e que não estão previstos no código, validações ou mesmo em nível de feature. Categorize esses tipos de teste, incluindo os de backend e frontend e traga exatamente o que não está coberto e o motivo pelo qual deveríamos implementar. No final, faça um resumo e traga a quantidade esperada de novos testes que deverão ser criados apenas nesses tipos de situação.
+```
+
+Outro prompt melhorado (versão: golden prompt):
+
+```md
+Você é um(a) QA Engineer Sênior com foco em risco, resiliência e prevenção de regressão.
+
+Objetivo:
+Mapear a cobertura atual de testes (frontend e backend) e identificar edge cases críticos não cobertos, com priorização prática para implementação.
+
+Regras de execução:
+
+1. Analise somente com base no código e testes existentes.
+2. Se não houver evidência clara de cobertura, classifique como: Não coberto.
+3. Não traga recomendações genéricas; toda lacuna deve estar vinculada a um fluxo/feature real.
+4. Evite redundância; não proponha teste que já esteja coberto de forma suficiente.
+5. Priorize risco de produção e impacto no negócio.
+
+Escopo obrigatório de edge cases:
+
+1. Error handling e exceções não tratadas.
+2. Timeouts, indisponibilidade de dependências, retry, fallback.
+3. Rate limiting, throttling e abuso de API.
+4. Segurança: autenticação, autorização, validação de entrada, injeções, exposição de dados sensíveis, CORS/CSRF/XSS quando aplicável.
+5. Concorrência: idempotência, race conditions, duplicidade de eventos/requisições.
+6. Integridade e consistência de dados/transações.
+7. Casos de borda de domínio: limites, nulos, formatos inválidos, estados inesperados.
+8. Fluxos críticos em caminho triste.
+
+Formato de saída obrigatório:
+Retorne somente tabelas Markdown, nesta ordem.
+
+Tabela 1: Cobertura Atual
+| ID | Camada (Frontend/Backend) | Tipo (Unit/Integration/E2E) | Fluxo/Feature | O que está coberto | Evidência (arquivo de teste/cenário) | Nível de confiança (Alto/Médio/Baixo) |
+|---|---|---|---|---|---|---|
+
+Tabela 2: Gaps de Edge Cases Não Cobertos
+| ID | Camada | Fluxo/Feature | Edge case não coberto | Tipo de teste recomendado | Severidade (Alta/Média/Baixa) | Impacto em produção | Probabilidade | Motivo para implementar | Critério de aceite |
+|---|---|---|---|---|---|---|---|---|---|
+
+Tabela 3: Priorização de Implementação (Top 10)
+| Prioridade | ID do gap | Teste sugerido | Risco reduzido | Esforço (Baixo/Médio/Alto) | Justificativa objetiva |
+|---|---|---|---|---|---|
+
+Tabela 4: Estimativa de Novos Testes
+| Dimensão | Categoria | Quantidade estimada |
+|---|---|---|
+| Camada | Frontend | |
+| Camada | Backend | |
+| Tipo | Unit | |
+| Tipo | Integration | |
+| Tipo | E2E | |
+| Risco | Segurança | |
+| Risco | Resiliência | |
+| Risco | Validação | |
+| Risco | Concorrência | |
+| Total | Geral | |
+
+Tabela 5: Resumo Executivo
+| Item | Resultado |
+|---|---|
+| Pontos bem cobertos | |
+| Principais riscos não mitigados | |
+| Ganho esperado com novos testes | |
+| Nível de confiança da análise | |
+
+Critérios de qualidade da resposta:
+
+1. Específica ao sistema analisado.
+2. Acionável e priorizada.
+3. Objetiva, sem teoria desnecessária.
+4. Clara sobre suposições e incertezas.
+```
 
 # Test Guide Skill

@@ -279,3 +279,6 @@ Critérios de qualidade da resposta:
 - TDD visa criar primeiramente os testes para depois a implementação e refatoração.
 
 ![image](./resources/tdd.png)
+
+> [!NOTE]
+> Skill de TDD: **[https://skills.sh/mattpocock/skills/tdd](https://skills.sh/mattpocock/skills/tdd)**

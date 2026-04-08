@@ -254,3 +254,28 @@ Critérios de qualidade da resposta:
 
 > [!NOTE]
 > Exemplo de skill de Test Guide: **[https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md](https://github.com/devfullcycle/skills-mba/blob/main/test-guide/SKILL.md)**
+
+## Testes de Frontend/Browser
+
+- Quando estiver trabalhando com frontend, tenha clareza exata do que ela deve testar, indicando exatamente quais os fluxos.
+
+- A IA tende a iniciar sempre um fluxo do zero. Logo, 70% dos testes, provavelmente serão executados de forma redundante. Aproveite sessões/cookies do browser.
+
+- Trabalhe ao máximo de forma headless.
+
+- Entenda o nível de complexidade dos testes. Grande parte dos testes podem ser feitos com `playwiright-cli` + Skills (mais leve). Ao invés de Playwright + MCP. Sendo o Playwright um exemplo de ferramenta de testes.
+
+> [!NOTE]
+> Instalação do Playwright CLI: `npm install -D @playwright/cli` ou Link para documentação: **[https://playwright.dev/docs/cli](https://github.com/microsoft/playwright-cli)**
+> Skill do Playwright CLI: **[https://skills.sh/microsoft/playwright-cli/playwright-cli](https://skills.sh/microsoft/playwright-cli/playwright-cli)**
+
+> [!NOTE]
+> A Skill criada pela Full Cycle MBA, chamada `E2E Nav Test`, auxilia na análise de uma codebase de aplicação web (SPA, server-rendered ou híbrida), gera um plano de teste estruturado com consciência de dependências e, opcionalmente, executa os testes usando automação de navegador. Link da Skill: **[https://github.com/devfullcycle/skills-mba/blob/main/e2e-nav-test/SKILL.md](https://github.com/devfullcycle/skills-mba/blob/main/e2e-nav-test/SKILL.md)**
+
+## TDD (Test Driven Development) com IA
+
+- TDD sempre foi uma ótima metodologia para o desenvolvimento de software e sem dúvidas pode ser uma abordagem extremamente válida para o processo de desenvolvimento com IA
+
+- TDD visa criar primeiramente os testes para depois a implementação e refatoração.
+
+![image](./resources/tdd.png)

@@ -133,7 +133,7 @@ C4Container
 
 ## Fundação da IA
 
-![](./resources/fundacao-da-ia.png)
+![](./resources/fundacao-da-ia.svg)
 
 ## Artefatos do Claude Code que vamos usar
 

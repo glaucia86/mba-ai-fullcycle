@@ -138,3 +138,7 @@ C4Container
 ## Artefatos do Claude Code que vamos usar
 
 ![](./resources/artefatos-claude-code.svg)
+
+## A Fundação da IA que vamos implementar
+
+![](./resources/fundacao-ia-implementacao.svg)

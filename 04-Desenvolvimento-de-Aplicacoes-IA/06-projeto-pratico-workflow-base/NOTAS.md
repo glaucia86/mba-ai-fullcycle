@@ -129,7 +129,7 @@ C4Container
 
 ## Workflows de desenvolvimento com IA
 
-![](./resources/workflow-desenvolvimento-ai.png)
+![](./resources/workflow-desenvolvimento-ai.svg)
 
 ## Fundação da IA
 

@@ -1,0 +1,140 @@
+# StreamTube - Plataforma de Compartilhamento de Vídeos!
+
+## Arquitetura do Projeto
+
+```mermaid
+C4Container
+    title Container diagram for StreamTube
+
+    Person(anonUser, "Anonymous User", "Watches videos without login")
+    Person(authUser, "Authenticated User", "Watches, uploads, comments and subscribes")
+
+    Container_Boundary(c1, "StreamTube") {
+        Container(frontend, "Frontend", "Next.js", "Platform interface")
+        Container(api, "API", "Nest.js", "Business rules and authentication")
+        Container(worker, "Video Worker", "FFmpeg", "Processes videos in background")
+        ContainerDb(db, "Database", "PostgreSQL", "Users, channels, videos, comments, likes")
+        ContainerDb(storage, "Object Storage", "S3 or MinIO", "Video files and thumbnails")
+        ContainerQueue(queue, "Message Queue", "TBD", "Enqueues video processing jobs")
+    }
+
+    System_Ext(email, "Email Service", "Account confirmation and password recovery")
+
+    Rel(anonUser, frontend, "Uses", "HTTPS")
+    Rel(authUser, frontend, "Uses", "HTTPS")
+    Rel(frontend, api, "Calls", "REST")
+    Rel(frontend, storage, "Streams", "HTTPS")
+
+    Rel(api, db, "Reads/Writes")
+    Rel(api, storage, "Uploads")
+    Rel(api, queue, "Publishes job")
+    Rel(api, email, "Sends email", "SMTP")
+
+    Rel(queue, worker, "Delivers job")
+    Rel(worker, storage, "Reads/Saves")
+    Rel(worker, db, "Updates")
+
+    UpdateElementStyle(anonUser, $bgColor="#37474F", $fontColor="#ECEFF1", $borderColor="#78909C")
+    UpdateElementStyle(authUser, $bgColor="#37474F", $fontColor="#ECEFF1", $borderColor="#78909C")
+    UpdateElementStyle(frontend, $bgColor="#00BCD4", $fontColor="#FFFFFF", $borderColor="#0097A7")
+    UpdateElementStyle(api, $bgColor="#FF7043", $fontColor="#FFFFFF", $borderColor="#E64A19")
+    UpdateElementStyle(worker, $bgColor="#AB47BC", $fontColor="#FFFFFF", $borderColor="#8E24AA")
+    UpdateElementStyle(db, $bgColor="#42A5F5", $fontColor="#FFFFFF", $borderColor="#1E88E5")
+    UpdateElementStyle(storage, $bgColor="#66BB6A", $fontColor="#FFFFFF", $borderColor="#43A047")
+    UpdateElementStyle(queue, $bgColor="#FFA726", $fontColor="#FFFFFF", $borderColor="#FB8C00")
+    UpdateElementStyle(email, $bgColor="#78909C", $fontColor="#FFFFFF", $borderColor="#546E7A")
+
+    UpdateRelStyle(anonUser, frontend, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(authUser, frontend, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(frontend, api, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetY="-10")
+    UpdateRelStyle(frontend, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="-60", $offsetY="10")
+    UpdateRelStyle(api, db, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="-40")
+    UpdateRelStyle(api, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetY="10")
+    UpdateRelStyle(api, queue, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+    UpdateRelStyle(api, email, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(queue, worker, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+    UpdateRelStyle(worker, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40", $offsetY="10")
+    UpdateRelStyle(worker, db, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+```
+
+## Arquitetura do Projeto - Versão Ampliada
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "22px"}}}%%
+C4Container
+    title Container diagram for StreamTube
+
+    Person(anonUser, "Anonymous User", "Watches videos without login")
+    Person(authUser, "Authenticated User", "Watches, uploads, comments and subscribes")
+
+    Container_Boundary(c1, "StreamTube") {
+        Container(frontend, "Frontend", "Next.js", "Platform interface")
+        Container(api, "API", "Nest.js", "Business rules and authentication")
+        Container(worker, "Video Worker", "FFmpeg", "Processes videos in background")
+        ContainerDb(db, "Database", "PostgreSQL", "Users, channels, videos, comments, likes")
+        ContainerDb(storage, "Object Storage", "S3 or MinIO", "Video files and thumbnails")
+        ContainerQueue(queue, "Message Queue", "TBD", "Enqueues video processing jobs")
+    }
+
+    System_Ext(email, "Email Service", "Account confirmation and password recovery")
+
+    Rel(anonUser, frontend, "Uses", "HTTPS")
+    Rel(authUser, frontend, "Uses", "HTTPS")
+    Rel(frontend, api, "Calls", "REST")
+    Rel(frontend, storage, "Streams", "HTTPS")
+
+    Rel(api, db, "Reads/Writes")
+    Rel(api, storage, "Uploads")
+    Rel(api, queue, "Publishes job")
+    Rel(api, email, "Sends email", "SMTP")
+
+    Rel(queue, worker, "Delivers job")
+    Rel(worker, storage, "Reads/Saves")
+    Rel(worker, db, "Updates")
+
+    UpdateElementStyle(anonUser, $bgColor="#37474F", $fontColor="#ECEFF1", $borderColor="#78909C")
+    UpdateElementStyle(authUser, $bgColor="#37474F", $fontColor="#ECEFF1", $borderColor="#78909C")
+    UpdateElementStyle(frontend, $bgColor="#00BCD4", $fontColor="#FFFFFF", $borderColor="#0097A7")
+    UpdateElementStyle(api, $bgColor="#FF7043", $fontColor="#FFFFFF", $borderColor="#E64A19")
+    UpdateElementStyle(worker, $bgColor="#AB47BC", $fontColor="#FFFFFF", $borderColor="#8E24AA")
+    UpdateElementStyle(db, $bgColor="#42A5F5", $fontColor="#FFFFFF", $borderColor="#1E88E5")
+    UpdateElementStyle(storage, $bgColor="#66BB6A", $fontColor="#FFFFFF", $borderColor="#43A047")
+    UpdateElementStyle(queue, $bgColor="#FFA726", $fontColor="#FFFFFF", $borderColor="#FB8C00")
+    UpdateElementStyle(email, $bgColor="#78909C", $fontColor="#FFFFFF", $borderColor="#546E7A")
+
+    UpdateRelStyle(anonUser, frontend, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(authUser, frontend, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(frontend, api, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetY="-10")
+    UpdateRelStyle(frontend, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="-60", $offsetY="10")
+    UpdateRelStyle(api, db, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="-40")
+    UpdateRelStyle(api, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetY="10")
+    UpdateRelStyle(api, queue, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+    UpdateRelStyle(api, email, $textColor="#B0BEC5", $lineColor="#B0BEC5")
+    UpdateRelStyle(queue, worker, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+    UpdateRelStyle(worker, storage, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40", $offsetY="10")
+    UpdateRelStyle(worker, db, $textColor="#B0BEC5", $lineColor="#B0BEC5", $offsetX="40")
+
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+```
+
+## Dinâmica de desenvolvimento do projeto
+
+- Back-end (Nest.js)
+- Fundação de IA para Back-end
+- Front-end (Next.js)
+- Fundação de IA para Front-end
+- Dev Fullstack - ambos ao mesmo tempo
+
+## Workflows de desenvolvimento com IA
+
+![](./resources/workflow-desenvolvimento-ai.png)
+
+## Fundação da IA
+
+![](./resources/fundacao-da-ia.png)
+
+## Artefatos do Claude Code que vamos usar
+
+![](./resources/artefatos-claude-code.svg)

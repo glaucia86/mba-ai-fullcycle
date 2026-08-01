@@ -8,10 +8,10 @@
       "type": "text",
       "x": 560.4006736837927,
       "y": -2.6218753534668053,
-      "width": 393.42401123046875,
-      "height": 28,
+      "width": 403.36981201171875,
+      "height": 27.5,
       "angle": 0,
-      "strokeColor": "#74c0fc",
+      "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
@@ -23,11 +23,11 @@
       "index": "a0",
       "roundness": null,
       "seed": 1001,
-      "version": 75,
-      "versionNonce": 696194250,
+      "version": 77,
+      "versionNonce": 533202775,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1777604476632,
+      "updated": 1777606061011,
       "link": null,
       "locked": false,
       "text": "Workflows de desenvolvimento com IA",
@@ -2046,7 +2046,7 @@
     "gridSize": 20,
     "gridStep": 5,
     "gridModeEnabled": false,
-    "viewBackgroundColor": "#171717"
+    "viewBackgroundColor": "#ffffff"
   },
   "files": {}
 }
